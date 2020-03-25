@@ -41,7 +41,6 @@ Below, you will find the different files in the repository and what they're used
 
 ```
 .
-├── CNAME                       // This file lets me use my own URL for the blog
 ├── _partials
 │    ├── _footer.jade           // The layout for the page footer
 │    └── _head.jade             // The layout for the page head
@@ -177,8 +176,35 @@ To do that, first we need to compile the Jade and Less files into browser-readbl
 
 ```bash
 cd.. # parent directory
-harp compile <blog directory> ../<publish directory>
+harp compile <blog directory> <publish directory>
 ```
+
+### Post-Compliation
+
+Your publish directory should look more like the below:
+
+```
+.
+├── CNAME                      
+├── assets                     
+│    ├── css
+│    │   └── main.less          
+│    ├── docs
+│    │   └── ...
+│    ├── fonts
+│    │   └── ...
+│    └── images
+│        └── ...
+├── writings                    
+│    ├── index.html            
+│    └── my-post.html        
+├── 404.html                   
+├── about.html                 
+├── contact.html               
+├── index.html                                
+└── README.md 
+```
+
 
 ### Deploying the blog
 
