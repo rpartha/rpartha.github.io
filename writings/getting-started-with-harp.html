@@ -89,6 +89,7 @@ conditional logic as part of its syntax, however, all other JavaScript logic mus
 <pre><code class="language-jade">// ...
 nav.posts
   ul
+    - count = 1
     each article, slug in public.writings._data
       if count &lt; 6
         li
