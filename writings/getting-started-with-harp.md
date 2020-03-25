@@ -148,6 +148,7 @@ conditional logic as part of its syntax, however, all other JavaScript logic mus
 // ...
 nav.posts
   ul
+    - count = 1
     each article, slug in public.writings._data
       if count < 6
         li
