@@ -1,0 +1,24 @@
+h1 Ramaseshan Parthasarathy
+p Software developer based in Princeton, NJ
+h2 Writings
+nav.posts
+  ul
+    - count = 1
+    each article, slug in public.writings._data
+      if count < 6
+        li
+          span.date #{ article.date }
+          a(href='/writings/#{ slug }') #{ article.title }
+        - count++
+      
+p.archive
+    a(href='/writings/') Archive
+h2 Links
+nav.pages
+  ul
+    li
+      a(href='/about') About
+    li
+      a(href='/contact') Contact
+    li
+      a(href='/assets/docs/Parthasarathy_Ramaseshan_Resume.pdf', target='_blank', rel='noopener noreferrer') Résumé
