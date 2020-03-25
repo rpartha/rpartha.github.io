@@ -1,0 +1,128 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/><meta name="theme-color" content="#121212"/><link rel="icon" type="image/png" href="/assets/images/favicon.png"/><title>/Ram/Getting Started With Harp.js</title><link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/main.css"/></head><body><div class="container"><p><a href="../">←</a></p><p class="date">2020-03-24</p><h1>Getting Started With Harp.js</h1><p>In this guide, I will explain how to build a blog much like the one you&#39;re reading using Harp.js. Rather than using a 
+CMS such as WordPress, I opted to use <a href="http://harpjs.com/">Harp.js</a>, an amazing Node.js static web server with built-in
+preprocessing, instead.</p>
+<h2>Prerequisites</h2><p>Before we start, there are a few things that need to be taken care of.</p>
+<h3>Node.js</h3><p>As Harp relies on Node.js, we need to install that first. Please download and install the <a href="https://nodejs.org/en/download">latest LTS
+version</a> for your system.</p>
+<h3>Harp.js</h3><p>Now that you&#39;ve got Node installed, it&#39;s time to install Harp. You install it using Node&#39;s default package manager, npm.<br>The following npm command, to be executed in a terminal or the inclduded CLI, should do the trick:</p>
+<pre><code>sudo npm install -g harp</code></pre><h3>Git/Github</h3><p>If you&#39;ve got <a href="https://git-scm.com/">git</a> installed and you plan on deploying the blog to Github, you can go ahead and make a Github repo.
+The naming convention to be followed is <code>&lt;username&gt;.github.io</code>. Once created, you can clone it wherever you save repos.</p>
+<h2>Setup</h2><p>Great, now that we have everything we need, we can setup the directory.</p>
+<h3>Git Branches</h3><p>I believe it is good practice to separate developmental code from the published result. As such, we will create and use a <strong>dev</strong> branch
+to house our code and publish the results to the <strong>master</strong> branch. You can create the branch via Github itself.</p>
+<h3>File Structure</h3><p>Below, you will find the different files in the repository and what they&#39;re used for. Feel free to make the empty files yourself.</p>
+<pre><code>.
+├── _partials
+│    ├── _footer.jade           // The layout for the page footer
+│    └── _head.jade             // The layout for the page head
+├── assets                      // This is where I put things that are either media or styling
+│    ├── css
+│    │   ├── _partials
+│    │   │    └── _fonts.less   // Handles fonts (manully imported font files)
+│    │   └── main.less          // The common stylesheet
+│    ├── docs
+│    │   └── ...
+│    ├── fonts
+│    │   └── ...
+│    └── images
+│        └── ...
+├── writings                    // This is where I put things that are related to my posts
+│    ├── _data.json             // Contains metadata for each post
+│    ├── _layout.jade           // The overall layout for the posts
+│    └── index.jade             // The Archive page - I wanted /writings/
+│    └── my-post.md             // Posts can be written in markdown (preferred) or Jade
+├── _data.json                  // Contains the metadata for each page
+├── _layout.jade                // The layout for the general site: head -&gt; data -&gt; footer
+├── 404.jade                    // The 404 Not Found page
+├── about.jade                  // The About page
+├── contact.jade                // The Contact page
+├── index.jade                  // The Home page
+├── _harp.json                  // (Optional) Basic site information. I didn&#39;t include it.
+└── README.md </code></pre><p>As you can see, I am using Jade and Less as my preprocessors of choice. Preprocessors allow us to 
+us to write tidier, more efficient, and dynamic HTML &amp; CSS. Note that all files prepended with an underscore
+get ignored during compilation.</p>
+<h2>Coding</h2><p>Open your favorite editor (VSCode is my editor of choice) to start populating the files.</p>
+<h3>_data.json</h3><p>The data file present in both the root and post directories. It is a JSON file will contain the metadata for each page or post,
+respectively. Below is an example. Each page or post consists of a slug (e.g. &quot;index&quot;) and metadata. Note that the slug must match 
+the name of Jade or markdown file it corresponds to. </p>
+<pre><code class="language-json">{
+    &quot;index&quot;: {
+        &quot;title&quot;: &quot;Home&quot;
+    },
+    &quot;about&quot;: {
+        &quot;title&quot;: &quot;About&quot;
+    },
+    &quot;contact&quot;: {
+        &quot;title&quot;: &quot;Contact&quot;
+    },
+    &quot;404&quot;: {
+        &quot;title&quot;: &quot;404&quot;
+    }
+}</code></pre>
+<h3>_layout.jade</h3><p>The layout file can be found in both the root and post directories. You can define a separate layout for your posts vs. all other pages. 
+Just like a regular HTML file, it consists of a head, a body, a footer, and optional script imports. Let&#39;s break down the below example 
+root layout file.</p>
+<p>The first thing you&#39;ll notice is that our head is not defined here. It is actually defined in a separate Jade file called a partial and 
+is introduced into the layout by calling <code>!= partial(...)</code> . The footer is brought in the same way,</p>
+<p>Lastly, you&#39;ll come across a <code>!= yield</code> within our body. This is where the content of all the other pages will append to. The beauty of this
+is that we only have to define things once, and Harp will take care of the rest. Feel free to style your blog  as you see fit.</p>
+<pre><code class="language-jade">doctype html
+html
+  != partial(&#39;_partials/_head&#39;)
+  body
+    .container
+      != yield
+      != partial(&#39;_partials/_footer&#39;)
+    script(src=&#39;assets/js/script.js&#39;)</code></pre>
+<h2>_head.jade</h2><p>This is a partial file (indicated by the underscore) that contains our head. Most of it is pretty standard, except
+for our title. This special syntax allows us to grab the title from our data file. The same can be done for any other
+defined metadata.</p>
+<pre><code class="language-jade">head
+  meta(name=&#39;viewport&#39;, content=&#39;width=device-width, initial-scale=1.0, shrink-to-fit=no&#39;)
+  link(rel=&#39;icon&#39;, type=&#39;image/png&#39;, href=&#39;/assets/images/favicon.png&#39;)
+  title= title
+  link(rel=&#39;stylesheet&#39;, href=&#39;/assets/css/main.css&#39;)</code></pre>
+<h3>index.jade</h3><p>This file contains the body for our home page and is brought in as a result of the <code>!= yield</code> from our layout file. Taking a look
+at the example below, we loop through the list of articles we are about to write in <code>/heading</code> and display the date and title of each.
+Since this our home page, we limit the number of posts shown using a counter and conditional logic. Jade includes
+conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. </p>
+<pre><code class="language-jade">// ...
+nav.posts
+  ul
+    each article, slug in public.writings._data
+      if count &lt; 6
+        li
+          span.date #{ article.date }
+          a(href=&#39;/writings/#{ slug }&#39;) #{ article.title }
+        - count++
+// ...</code></pre>
+<h3>Previewing</h3><p>We can spin up a server at <strong>localhost: 9000</strong> to preview our blog using the below terminal command. </p>
+<pre><code class="language-bash">cd.. # parent directory
+harp server &lt;blog directory&gt;</code></pre>
+<h2>Deployment</h2><p>Great. At this point, we have our blog, but how the heck do we get it online? </p>
+<h3>Compilation</h3><p>To do that, first we need to compile the Jade and Less files into browser-readble HTML and CSS files.</p>
+<pre><code class="language-bash">cd.. # parent directory
+harp compile &lt;blog directory&gt; &lt;publish directory&gt;</code></pre>
+<h3>Post-Compliation</h3><p>Your publish directory should look more like the below:</p>
+<pre><code>.
+├── CNAME                      
+├── assets                     
+│    ├── css
+│    │   └── main.less          
+│    ├── docs
+│    │   └── ...
+│    ├── fonts
+│    │   └── ...
+│    └── images
+│        └── ...
+├── writings                    
+│    ├── index.html            
+│    └── my-post.html        
+├── 404.html                   
+├── about.html                 
+├── contact.html               
+├── index.html                                
+└── README.md </code></pre><h3>Deploying the blog</h3><p>Now that we&#39;ve compiled the files, we will publish them to our repository. Make sure to
+commit and push the source code to the dev branch first, then switch to the master branch
+to push the compiled files. Your blog should now be live at <code>&lt;username&gt;.github.io</code>.</p><p><a href="../">←</a></p><div class="footer"><p class="toggle-theme"><a href="#" onclick="toggleTheme(event)">Dark</a></p><p class="blurb"> 
+&copy; 2020</p><p class="source"><a href="https://github.com/rpartha/rpartha.github.io" target="_blank" rel="noopener noreferrer">Source</a></p></div></div><script src="../assets/js/script.js"></script></body></html>
