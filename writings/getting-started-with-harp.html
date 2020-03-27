@@ -1,4 +1,6 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/><meta name="theme-color" content="#121212"/><link rel="icon" type="image/png" href="/assets/images/favicon.png"/><title>/Ram/Getting Started With Harp.js</title><link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/main.css"/></head><body><div class="container"><p><a href="../">←</a></p><p class="date">2020-03-24</p><h1>Getting Started With Harp.js</h1><p>In this guide, I will explain how to build a blog much like the one you&#39;re reading using Harp.js. Rather than using a 
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/><meta name="theme-color" content="#121212"/><link rel="icon" type="image/png" href="/assets/images/favicon.png"/><title>/Ram/Getting Started With Harp.js</title><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99834068-1', 'auto');
+ga('send', 'pageview');</script><script async="" src="https://www.google-analytics.com/analytics.js"></script><link href="https://fonts.googleapis.com/css2?family=Overpass+Mono&amp;display=swap" rel="stylesheet"/><link rel="stylesheet" href="/assets/css/main.css"/></head><body><div class="container"><p><a href="../">←</a></p><p class="date">2020-03-24</p><h1>Getting Started With Harp.js</h1><p>In this guide, I will explain how to build a blog much like the one you&#39;re reading using Harp.js. Rather than using a 
 CMS such as WordPress, I opted to use <a href="http://harpjs.com/">Harp.js</a>, an amazing Node.js static web server with built-in
 preprocessing, instead.</p>
 <h2>Prerequisites</h2><p>Before we start, there are a few things that need to be taken care of.</p>
@@ -29,7 +31,7 @@ to house our code and publish the results to the <strong>master</strong> branch.
 ├── writings                    // This is where I put things that are related to my posts
 │    ├── _data.json             // Contains metadata for each post
 │    ├── _layout.jade           // The overall layout for the posts
-│    └── index.jade             // The Archive page - I wanted /writings/
+│    ├── index.jade             // The Archive page - I wanted /writings/
 │    └── my-post.md             // Posts can be written in markdown (preferred) or Jade
 ├── _data.json                  // Contains the metadata for each page
 ├── _layout.jade                // The layout for the general site: head -&gt; data -&gt; footer
@@ -85,7 +87,8 @@ defined metadata.</p>
 <h3>index.jade</h3><p>This file contains the body for our home page and is brought in as a result of the <code>!= yield</code> from our layout file. Taking a look
 at the example below, we loop through the list of articles we are about to write in <code>/heading</code> and display the date and title of each.
 Since this our home page, we limit the number of posts shown using a counter and conditional logic. Jade includes
-conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. </p>
+conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. You can then link
+to another page that displays all your posts; just make sure to remove the conditional logic on that page.</p>
 <pre><code class="language-jade">// ...
 nav.posts
   ul
@@ -109,7 +112,7 @@ harp compile &lt;blog directory&gt; &lt;publish directory&gt;</code></pre>
 ├── CNAME                      
 ├── assets                     
 │    ├── css
-│    │   └── main.less          
+│    │   └── main.css          
 │    ├── docs
 │    │   └── ...
 │    ├── fonts
