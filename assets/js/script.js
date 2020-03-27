@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
     } else {
         setTheme('light', 'Dark');
     }
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark', 'Light');
+        console.log('setting dark theme...');
+    } else {
+        setTheme('light', 'Dark');
+        console.log('setting light theme...');
+    }
 });
 
 function toggleTheme(event) {

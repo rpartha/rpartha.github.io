@@ -58,7 +58,7 @@ Below, you will find the different files in the repository and what they're used
 ├── writings                    // This is where I put things that are related to my posts
 │    ├── _data.json             // Contains metadata for each post
 │    ├── _layout.jade           // The overall layout for the posts
-│    └── index.jade             // The Archive page - I wanted /writings/
+│    ├── index.jade             // The Archive page - I wanted /writings/
 │    └── my-post.md             // Posts can be written in markdown (preferred) or Jade
 ├── _data.json                  // Contains the metadata for each page
 ├── _layout.jade                // The layout for the general site: head -> data -> footer
@@ -142,7 +142,8 @@ head
 This file contains the body for our home page and is brought in as a result of the ```!= yield``` from our layout file. Taking a look
 at the example below, we loop through the list of articles we are about to write in ```/heading``` and display the date and title of each.
 Since this our home page, we limit the number of posts shown using a counter and conditional logic. Jade includes
-conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. 
+conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. You can then link
+to another page that displays all your posts; just make sure to remove the conditional logic on that page.
 
 ```jade
 // ...
@@ -189,7 +190,7 @@ Your publish directory should look more like the below:
 ├── CNAME                      
 ├── assets                     
 │    ├── css
-│    │   └── main.less          
+│    │   └── main.css          
 │    ├── docs
 │    │   └── ...
 │    ├── fonts
