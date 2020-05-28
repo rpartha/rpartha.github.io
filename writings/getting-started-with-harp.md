@@ -140,7 +140,7 @@ head
 ### index.jade
 
 This file contains the body for our home page and is brought in as a result of the ```!= yield``` from our layout file. Taking a look
-at the example below, we loop through the list of articles we are about to write in ```/heading``` and display the date and title of each.
+at the example below, we loop through the list of articles we are about to write in ```/writings``` and display the date and title of each.
 Since this our home page, we limit the number of posts shown using a counter and conditional logic. Jade includes
 conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. You can then link
 to another page that displays all your posts; just make sure to remove the conditional logic on that page.
