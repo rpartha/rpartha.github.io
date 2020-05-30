@@ -13,7 +13,7 @@ harp compile _harp $TEMP_DIRECTORY || exit 1
 cp .gitignore $TEMP_DIRECTORY || exit 1
 
 echo "Checking out master branch"
-git checkout master || exit 1
+git checkout -b master --track origin/master || exit 1
 
 echo "Removing old static content"
 git rm -rf . || exit 1
