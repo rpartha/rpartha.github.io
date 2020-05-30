@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- node
+before_script:
+- npm install
+- chmod +x ./scripts/deploy.sh
+script:
+- npm run-script deploy
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+    recipients:
+    - tilluboy@gmail.com
+branches:
+  only:
+  - dev
+env:
+  global:
+    secure: OIyMFN+ODk/ogeAyMyoZVy6eUmCKWv0b3fWfL3p0DiR5UzDcATyNpLZiGiWM2D5NPZQiO6tIINj3Sfs51cIQZiCZFIM6hqTDAeO4V2HK9Gb+ekYULODE9r7LX6YgTjxkOKVV2sesqlA2EHhSvENtKVM5HMthU+BpNkgv+OIQarq/eoNvjQMvIgRVcOgGFnDPn3GGo9B0qR/GC3vWOIPHBZRUjAgG7kpO2TOuBonH94dK/Snos0QwIQuRE4mV42f04gC/UFJAmhDDdkVuzu8C2Bw9B5/oeoRtkqRQOGR6Rm55R3pR0/PICsj5DQAvJ83qhjxNvxkxv8x96JdIyHwrhQUJZzngckABF7E3/+1NW2jru3BpaUXhfAPXnC5p7Vx1xrCBTbYCyiXXkWUt3PJ+9zhEYFkuph57YQgKkVKx5StQxYSVYaTPBaIzWlycSUjCzAA7PulwIuyMZBbDjkaOi4EMhaiJUogoOiXrBBF0CUO88TwGfmULHEoyNgsaUxdx3XUzzBKjUUD0h6gjI/2VsQIRLy08GERDQOzyrhsrczPAV3AeBIpXbPhJ6YARs3HLFgjI4WqSNm4LGW3kFEj3FIK7URTkFHzyvBgFklWMM9A69RXNPA9PvqtoTmXEWulqA+3cQzwPKewGkV7BVqw5SoSd8jRuhKe9dO7BR9iw2rQ=
