@@ -22,6 +22,8 @@ echo "Copying newly generated static content"
 cp -r $TEMP_DIRECTORY/* . || exit 1
 cp $TEMP_DIRECTORY/.gitignore . || exit 1
 
+echo 'ssgram.dev' > $TEMP_DIRECTORY/CNAME
+
 git add -A . || exit 1
 git commit --allow-empty -m "Regenerated static content for $CURRENT_COMMIT" || exit 1
 git push --force --quiet "$ORIGIN_URL_WITH_CREDENTIALS" master > /dev/null 2>&1
