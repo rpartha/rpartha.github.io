@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rpartha/rpartha.github.io.svg?branch=dev)](https://travis-ci.org/rpartha/rpartha.github.io)  
+
 # rpartha.github.io
 ![rpartha.github.io](/assets/images/site-screenshot.png)
 

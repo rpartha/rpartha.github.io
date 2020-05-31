@@ -1,5 +1,9 @@
 {
-    "hidden-through-time-review": {
+  "auto-deploy-harp-blog-with-travis-ci": {
+    "title": "Auto-Deploy Harp.js Blogs With Travis CI",
+    "date": "2020-05-30"
+  },  
+  "hidden-through-time-review": {
       "title": "Hidden Through Time: Hide-and-Seek Through The Ages",
       "date": "2020-05-28"
     },

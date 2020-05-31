@@ -5,7 +5,7 @@ nav.posts
   ul
     - count = 1
     each article, slug in public.writings._data
-      if count < 6
+      if count < 5
         li
           span.date #{ article.date }
           a(href='/writings/#{ slug }') #{ article.title }
