@@ -1,4 +1,4 @@
-# Auto-Deploy Harp.js Blog With Travis CI
+# Auto-Deploy Harp.js Blogs With Travis CI
 
 Having written this blog using Harp.js, I wanted to automate the process of deploying it to the primary branch as doing it manually was quite cumbersome. That's where <a href="https://travis-ci.org" target="_blank" rel="noopener noreferrer">Travis CI</a>, a hosted continuous integration service that works with Github, came into play. Assuming you already have a blog setup, stick around to find out exactly how to automatically deploy your blog to the primary branch. 
 
