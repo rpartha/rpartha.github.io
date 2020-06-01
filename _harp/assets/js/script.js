@@ -1,3 +1,10 @@
+/* match system preferences by default */
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setTheme('dark', 'Auto');
+} else {
+    setTheme('light', 'Auto');
+}
+
 document.addEventListener('DOMContentLoaded', function(event) {
     if (localStorage.getItem('theme') === 'dark') {
         setTheme('dark', 'Light');
