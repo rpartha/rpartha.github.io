@@ -1,32 +1,27 @@
-/* match system preferences by default */
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setTheme('dark', 'Light');
-} else {
-    setTheme('light', 'Dark');
-}
-
-document.addEventListener('DOMContentLoaded', function(event) {
-    if (localStorage.getItem('theme') === 'dark') {
-        setTheme('dark', 'Light');
-    } else {
-        setTheme('light', 'Dark');
-    } 
-});
-
-function toggleTheme(event) {
-    event.preventDefault();
-
-    if (document.body.className === 'dark') {
-        setTheme('light', 'Dark');
-    } else {
-        setTheme('dark', 'Light');
-    } 
-
-    console.log('setting theme...');
-}
-
-function setTheme(themeName, themeText) {
+function setTheme(themeName) {
     document.body.className = themeName;
-    document.getElementsByClassName('toggle-theme')[0].children[0].innerHTML = themeText;
-    localStorage.setItem('theme', themeName);
 }
+
+/* match system preferences if set otherwise schedule it */
+function automateColorScheme() {
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+    const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+    window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode())
+    window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode())
+
+    if(isDarkMode) setTheme('dark');
+    if(isLightMode) setTheme('light');
+    if(isNotSpecified || hasNoSupport) {
+        console.log('Scheduling dark mode during the night time....')
+        now = new Date();
+        hour = now.getHours();
+        if (hour < 5 || hour >= 20) { // 8 PM - 5 AM
+            setTheme('dark');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', automateColorScheme());
