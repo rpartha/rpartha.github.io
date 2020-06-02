@@ -5,14 +5,14 @@ nav.posts
   ul
     - count = 1
     each article, slug in public.writings._data
-      if count < 5
+      if count < 7 && article.title != 'Archive'
         li
           span.date #{ article.date }
           a(href='/writings/#{ slug }') #{ article.title }
         - count++
       
 p.archive
-    a(href='/writings/') Archive
+  a(href='/writings/') Archive
 h2 Links
 nav.pages
   ul

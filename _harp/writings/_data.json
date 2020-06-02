@@ -1,18 +1,31 @@
 {
+  "thoughts-about-george-floyd-and-the-protests": {
+    "title": "Thoughts About George Floyd and the Protests",
+    "date": "2020-06-02",
+    "layout": "_layout-writings"
+  },
   "auto-deploy-harp-blogs-with-travis-ci": {
-    "title": "Auto-Deploy Harp.js Blogs With Travis CI",
-    "date": "2020-05-30"
+    "title": "Auto-Deploy Harp.js Blogs with Travis CI",
+    "date": "2020-05-30",
+    "layout": "_layout-writings"
   },  
   "hidden-through-time-review": {
-      "title": "Hidden Through Time: Hide-and-Seek Through The Ages",
-      "date": "2020-05-28"
-    },
-    "getting-started-with-harp": {
-      "title": "Getting Started With Harp.js",
-      "date": "2020-03-24"
-    },
-    "my-first-real-post": {
-      "title": "My First Real Post",
-      "date": "2019-08-26"
-    }
+    "title": "Hidden Through Time: Hide-and-Seek Through The Ages",
+    "date": "2020-05-28",
+    "layout": "_layout-writings"
+  },
+  "getting-started-with-harp": {
+    "title": "Getting Started with Harp.js",
+    "date": "2020-03-24",
+    "layout": "_layout-writings"
+  },
+  "my-first-real-post": {
+    "title": "My First Real Post",
+    "date": "2019-08-26",
+    "layout": "_layout-writings"
+  },
+  "index": {
+    "title": "Archive",
+    "layout": "_layout-writings"
+  }
 }

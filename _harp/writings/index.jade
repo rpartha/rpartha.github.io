@@ -2,7 +2,8 @@ h1 Archive
 nav.posts
   ul
     each article, slug in public.writings._data
-      li
-        span.date #{ article.date }
-        a(href='/writings/#{ slug }') #{ article.title }
+      if article.title != 'Archive'
+        li
+          span.date #{ article.date }
+          a(href='/writings/#{ slug }') #{ article.title }
           

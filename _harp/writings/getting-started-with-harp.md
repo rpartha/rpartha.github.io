@@ -1,8 +1,8 @@
-# Getting Started With Harp.js
+# Getting Started with Harp.js
 
 In this guide, I will explain how to build a blog much like the one you're reading using Harp.js. Rather than using a 
-CMS such as WordPress, I opted to use [Harp.js](http://harpjs.com/), an amazing Node.js static web server with built-in
-preprocessing, instead.
+CMS such as WordPress, I opted to use <a href="http://harpjs.com/" target='_blank' rel='noopener noreferrer'>Harp.js</a>, 
+an amazing Node.js static web server with built-in preprocessing, instead.
 
 ## Prerequisites
 
@@ -10,8 +10,7 @@ Before we start, there are a few things that need to be taken care of.
 
 ### Node.js
 
-As Harp relies on Node.js, we need to install that first. Please download and install the [latest LTS
-version](https://nodejs.org/en/download) for your system.
+As Harp relies on Node.js, we need to install that first. Please download and install the <a href="https://nodejs.org/en/download" target='_blank' rel='noopener noreferrer'>latest LTS version</a> for your system.
 
 ### Harp.js
 
@@ -23,8 +22,7 @@ sudo npm install -g harp
 ```
 ### Git/Github
 
-If you've got [git](https://git-scm.com/) installed and you plan on deploying the blog to Github, you can go ahead and make a Github repo.
-The naming convention to be followed is ```<username>.github.io```. Once created, you can clone it wherever you save repos.
+If you've got <a href="https://git-scm.com/" target='_blank' rel='noopener noreferrer'>git</a> installed and you plan on deploying the blog to Github, you can go ahead and make a Github repo.The naming convention to be followed is ```<username>.github.io```. Once created, you can clone it wherever you save repos.
 
 ## Setup
 

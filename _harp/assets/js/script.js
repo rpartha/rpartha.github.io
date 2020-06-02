@@ -1,8 +1,8 @@
 /* match system preferences by default */
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setTheme('dark', 'Auto');
+    setTheme('dark', 'Light');
 } else {
-    setTheme('light', 'Auto');
+    setTheme('light', 'Dark');
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
