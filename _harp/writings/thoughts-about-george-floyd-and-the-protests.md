@@ -12,7 +12,7 @@ One of the things you can and probably should be doing is documenting this kind 
 * <a href="https://www.aclu.org/issues/criminal-law-reform/reforming-police/aclu-apps-record-police-conduct" target='_blank' rel='noopener noreferrer'>ACLU Apps to Record Police Conduct</a> (The evidence will remain intact on their server even if your phone is destroyed)
 * <a href="https://action.aclu.org/give/now" target='_blank' rel='noopener noreferrer'>Donate to The ACLU</a> (The work they do is important and you get to support a good cause)
 * <a href="https://www.gofundme.com/f/georgefloyd" target='_blank' rel='noopener noreferrer'>GoFundMe for George Floyd's Family</a> (Directly support his family— they deserve all they can get)
-* <a href="https://www.gofundme.com/f/georgefloyd" target='_blank' rel='noopener noreferrer'>People's City Council Freedom Fund</a> (Donate in other ways)
+* <a href="https://www.gofundme.com/f/peoples-city-council-ticket-fund" target='_blank' rel='noopener noreferrer'>People's City Council Freedom Fund</a> (Donate in other ways)
 
 Last thing I want to say before I forget is to make sure to **register to vote**. I was guilty of it myself during the 2016 election and have since became a registered voter. Don't just stop there— vote in people who have taken notice of this situation, have vowed to make changes, and have a proven track record of fighting against racism, discrimination, police brutality, etc. These are the people we **need** in office, and your vote matters a lot, especially if you live in a battleground or swing state. 
 
