@@ -1,14 +1,18 @@
 {
     "index": {
-        "title": "Home"
+        "title": "Home",
+        "dir": ""
     },
     "about": {
-      "title": "About"
+      "title": "About",
+      "dir": ""
     },
     "contact": {
-        "title": "Contact"
+        "title": "Contact",
+        "dir": ""
     },
     "404": {
-        "title": "404"
+        "title": "404",
+        "dir": ""
     }
 }
