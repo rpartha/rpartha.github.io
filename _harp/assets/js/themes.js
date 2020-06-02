@@ -9,8 +9,8 @@ function automateColorScheme() {
     const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
     const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
 
-    window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode())
-    window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode())
+    window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && setTheme('dark'))
+    window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && setTheme('light'))
 
     if(isDarkMode) setTheme('dark');
     if(isLightMode) setTheme('light');
