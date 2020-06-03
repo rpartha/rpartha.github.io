@@ -6,10 +6,19 @@ nav.posts
     - count = 1
     each article, slug in public.writings._data
       if count < 7 && article.title != 'Archive'
-        li
-          span.date #{ article.date }
-          a(href='/writings/#{ slug }') #{ article.title }
-        - count++
+        if count < 2
+          li
+            span.date #{ article.date }
+            a(href='/writings/#{ slug }') #{ article.title }
+            div.badge
+              span.bt New
+          - count++
+        else 
+          li
+            span.date #{ article.date }
+            a(href='/writings/#{ slug }') #{ article.title }
+          - count++
+
       
 p.archive
   a(href='/writings/') Archive
