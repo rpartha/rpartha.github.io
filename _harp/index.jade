@@ -4,14 +4,28 @@ h2 Writings
 nav.posts
   ul
     - count = 1
+    - today = new Date()
+    - today.setUTCHours(0,0,0,0)
+    - weekFirst = new Date(today.setDate(today.getDate() - today.getDay() + (day === 0 ? -6:1)))
+    - weekFirst.setUTCHours(0,0,0,0)
+    - weekLast = new Date(today.setDate(weekFirst.getDate() + 6))
+    - weekLast.setUTCHours(0,0,0,0)
     each article, slug in public.writings._data
-      if count < 7 && article.title != 'Archive'
-        if count < 2
+      if count < 7 && article.title != 'Archive' && article.title != '404'
+        - articleDate = new Date(article.date + 'T00:00:00Z')
+        //- diff = Math.round(Math.abs(today-articleDate)/(1000 * 60 * 60 * 24))
+        // only posts within the current week get the badge
+        if (articleDate >= weekFirst && articleDate <= weekLast)
           li
             span.date #{ article.date }
             a(href='/writings/#{ slug }') #{ article.title }
-            div.badge
-              span.bt New
+            div#badge
+              //i(data-feather='award' class='feather new')
+              svg.new(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 24 24', fill='white', width='18px', height='18px', alt='new')
+                path(d='M0 0h24v24H0V0z', fill='none')
+                path(d='M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z')
+
+              //span.bt New
           - count++
         else 
           li

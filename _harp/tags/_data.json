@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "title": "Meta",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  },
+  "tutorials": {
+    "title": "Tutorials",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  }, 
+  "gaming": {
+    "title": "Gaming",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  }, 
+  "reviews": {
+    "title": "Reviews",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  },
+  "current-events": {
+    "title": "Current Events",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  },
+  "harp-js": {
+    "title": "Harp.js",
+    "dir": "Tags/",
+    "layout": "_layout-tags"
+  },
+  "404": {
+    "title": "404",
+    "dir": "",
+    "layout": "_layout-tags"
+  }
+}

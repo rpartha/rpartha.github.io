@@ -4,11 +4,25 @@ html
   body
     .container
       p
-        a(id='back',href='../') ←
+        a(id='back',href='../')
+          i(data-feather='arrow-left' class='feather back')
       if date 
-        p.date= date
+        p.post-date= date
+      if tags
+        div#tagl
+          div.tag-icon
+            i(data-feather='tag' class='feather tag')
+          div.tag-list
+            ul
+              each t in tags
+                - t1 = t.replace('.', '-').replace(' ', '-')
+                - t2 = t.replace('%20', ' ')
+                li
+                  a(href='/tags/#{ t1 }') #{ '#' + t2 }       
       != yield
-      p
-        a(id='back',href='../') ←
+      if title != '404'
+        p
+          a(id='back',href='../')
+            i(data-feather='arrow-left' class='feather back')
       != partial('../_partials/_footer')
     script(src='../assets/js/themes.js')

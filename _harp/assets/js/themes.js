@@ -25,3 +25,4 @@ function automateColorScheme() {
 }
 
 document.addEventListener('DOMContentLoaded', automateColorScheme());
+feather.replace()
