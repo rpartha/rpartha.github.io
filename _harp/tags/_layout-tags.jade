@@ -7,9 +7,10 @@ html
         a(href='../') 
           i(data-feather='arrow-left' class='feather back')
       != yield
-      p
-        a(href='../')
-          i(data-feather='arrow-left' class='feather back')
+      if title != 'Harp.js' && title != 'Gaming' && title != 'Current Events'
+        p
+          a(href='../')
+            i(data-feather='arrow-left' class='feather back')
       != partial('../_partials/_footer')
     script(src='../assets/js/themes.js')
   

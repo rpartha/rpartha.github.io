@@ -20,7 +20,7 @@ html
                 li
                   a(href='/tags/#{ t1 }') #{ '#' + t2 }       
       != yield
-      if title != '404'
+      if title != '404' && title != 'My First Real Post'
         p
           a(id='back',href='../')
             i(data-feather='arrow-left' class='feather back')
