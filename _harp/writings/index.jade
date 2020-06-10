@@ -3,14 +3,20 @@ nav.posts
   ul
     - count = 1
     - today = new Date()
-    - today.setUTCHours(0,0,0,0)
+    - today.setHours(0,0,0,0)
+    - console.log('Today: ' + today)
+    - day = today.getDay()
+    - console.log('day: ' + day)
     - weekFirst = new Date(today.setDate(today.getDate() - today.getDay() + (day === 0 ? -6:1)))
-    - weekFirst.setUTCHours(0,0,0,0)
+    - weekFirst.setHours(0,0,0,0)
+    - console.log('First Day of Week: ' + weekFirst)
     - weekLast = new Date(today.setDate(weekFirst.getDate() + 6))
-    - weekLast.setUTCHours(0,0,0,0)
+    - weekLast.setHours(23,59,0,0)
+    - console.log('Last Day of Week: ' + weekLast)
     each article, slug in public.writings._data
       if article.title != 'Archive' && article.title != '404'
-        - articleDate = new Date(article.date + 'T00:00:00Z')
+        - articleDate = new Date(article.date + 'T00:00')
+        - console.log('Article Date: ' + articleDate)
         if (articleDate >= weekFirst && articleDate <= weekLast)
           li
             span.date #{ article.date }
