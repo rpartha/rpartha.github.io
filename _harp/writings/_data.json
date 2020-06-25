@@ -38,10 +38,5 @@
     "title": "Archive",
     "dir": "",
     "layout": "_layout-writings"
-  },
-  "404": {
-    "title": "404",
-    "dir": "",
-    "layout": "_layout-writings"
   }
 }
