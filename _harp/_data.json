@@ -11,6 +11,10 @@
         "title": "Contact",
         "dir": ""
     },
+    "setup": {
+        "title": "Setup",
+        "dir": ""
+    },
     "404": {
         "title": "404",
         "dir": ""
