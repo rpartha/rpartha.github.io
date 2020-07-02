@@ -1,0 +1,8 @@
+h1 Current Events
+nav.posts
+  ul
+    each article, slug in public.writings._data
+      if article.no_link != 1 && article.tags.includes('software')
+        li
+          span.date #{ article.date }
+          a(href='/writings/#{ slug }') #{ article.title }
