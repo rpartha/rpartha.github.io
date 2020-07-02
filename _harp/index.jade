@@ -16,7 +16,7 @@ nav.posts
     - weekLast.setHours(23,59,0,0)
     - console.log('Last Day of Week: ' + weekLast)
     each article, slug in public.writings._data
-      if count < 7 && article.title != 'Archive' && article.title != '404'
+      if count < 7 && article.no_link != 1
         - articleDate = new Date(article.date + 'T00:00')
         - console.log('Article Date: ' + articleDate)
         //- diff = Math.round(Math.abs(today-articleDate)/(1000 * 60 * 60 * 24))

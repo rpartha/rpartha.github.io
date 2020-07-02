@@ -2,7 +2,7 @@ h1 Gaming
 nav.posts
   ul
     each article, slug in public.writings._data
-      if article.title != 'Archive' && article.title != '404' && article.tags.includes('gaming')
+      if article.no_link != 1 && article.tags.includes('gaming')
         li
           span.date #{ article.date }
           a(href='/writings/#{ slug }') #{ article.title }

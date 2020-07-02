@@ -7,7 +7,7 @@ html
         a(href='../') 
           i(data-feather='arrow-left' class='feather back')
       != yield
-      if title != 'Harp.js' && title != 'Gaming' && title != 'Current Events'
+      if exclude_back != 1
         p
           a(href='../')
             i(data-feather='arrow-left' class='feather back')

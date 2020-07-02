@@ -2,36 +2,49 @@
   "meta": {
     "title": "Meta",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
   },
   "tutorials": {
     "title": "Tutorials",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
   }, 
   "gaming": {
     "title": "Gaming",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
   }, 
   "reviews": {
     "title": "Reviews",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
+  },
+  "software": {
+    "title": "Software",
+    "dir": "Tags/",
+    "layout": "_layout-tags",
+    "exclude_back": 1
   },
   "current-events": {
     "title": "Current Events",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
   },
   "harp-js": {
     "title": "Harp.js",
     "dir": "Tags/",
-    "layout": "_layout-tags"
+    "layout": "_layout-tags",
+    "exclude_back": 1
   },
   "404": {
     "title": "404",
     "dir": "",
-    "layout": "_layout-tags"
+    "layout": "_layout",
+    "exclude_back": 1
   }
 }
