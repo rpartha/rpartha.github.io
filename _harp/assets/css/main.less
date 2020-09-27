@@ -1,7 +1,7 @@
 @import '_partials/font';
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'JetBrains Mono', sans-serif;
   line-height: 1.875;
   font-weight: 400;
   font-size: 16px;
@@ -136,6 +136,10 @@ body.light #badge > .new {
   padding: 0 16px;
 }
 
+p {
+  text-align: justify;
+}
+
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -158,6 +162,12 @@ nav li .date {
 a {
   text-decoration: none;
   outline: 0;
+}
+
+a.tag-link {
+  display:inline-flex; 
+  text-align:justify; 
+  word-wrap:break-word;
 }
 
 a:hover {
@@ -228,7 +238,7 @@ body.light .feather.tag {
 
 code {
   font-size: 0.875em;
-  font-family: 'Overpass Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 table {

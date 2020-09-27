@@ -18,7 +18,7 @@ html
                 - t1 = t.replace('.', '-').replace(' ', '-')
                 - t2 = t.replace('%20', ' ')
                 li
-                  a(href='/tags/#{ t1 }') #{ '#' + t2 }       
+                  a(href='/tags/#{ t1 }' class='tag-link') #{ '#' + t2 }       
       != yield
       if exclude_back != 1
         p
