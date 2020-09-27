@@ -16,7 +16,7 @@ As Harp relies on Node.js, we need to install that first. Please download and in
 
 Now that you've got Node installed, it's time to install Harp. You install it using Node's default package manager, npm. The following npm command, to be executed in a terminal or the inclduded CLI, should do the trick:
 
-```
+```bash
 sudo npm install -g harp
 ```
 ### Git/Github
@@ -113,7 +113,7 @@ is introduced into the layout by calling ```!= partial(...)``` . The footer is b
 Lastly, you'll come across a ```!= yield``` within our body. This is where the content of all the other pages will append to. The beauty of this
 is that we only have to define things once, and Harp will take care of the rest. Feel free to style your blog  as you see fit.
 
-```jade
+```pug
 doctype html
 html
   != partial('_partials/_head')
@@ -130,7 +130,7 @@ This is a partial file (indicated by the underscore) that contains our head. Mos
 for our title. This special syntax allows us to grab the title from our data file. The same can be done for any other
 defined metadata.
 
-```jade
+```pug
 head
   meta(name='viewport', content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
   link(rel='icon', type='image/png', href='/assets/images/favicon.png')
@@ -146,7 +146,7 @@ Since this our home page, we limit the number of posts shown using a counter and
 conditional logic as part of its syntax, however, all other JavaScript logic must be preceded by a dash (-) and a space. You can then link
 to another page that displays all your posts; just make sure to remove the conditional logic on that page.
 
-```jade
+```pug
 // ...
 nav.posts
   ul
@@ -200,7 +200,9 @@ Your publish directory should look more like the below:
 │        └── ...
 ├── writings                    
 │    ├── index.html            
-│    └── my-post.html        
+│    └── my-post.html 
+├── tags                                
+│    └── tag-name.html              
 ├── 404.html                   
 ├── about.html                 
 ├── contact.html               

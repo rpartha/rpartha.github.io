@@ -344,6 +344,14 @@ td {
   body.dark tr {
     border-bottom: 0.5px solid #424957;
   }
+
+  ::selection{
+    background: #c792ea;
+  }
+  
+  ::-moz-selection {
+    background: #c792ea; 
+  }
 }
 
 @media(prefers-color-scheme: light) {
@@ -373,4 +381,12 @@ td {
   body.light tr {
     border-bottom: 0.5px solid #bdc5d8;
   }  
+
+  ::selection{
+    background: #e6dff3;
+  }
+  
+  ::-moz-selection {
+    background: #e6dff3; 
+  }
 }
