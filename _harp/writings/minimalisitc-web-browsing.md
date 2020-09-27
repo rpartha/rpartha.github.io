@@ -1,7 +1,7 @@
 # Minimalistic Web Browsing
 
 I wanted to take some time to talk about my evolution of web browsing as a medium, and why I switched to a new kind of browser⁠—
-one that I think you should look at if you want your browing experience to be minimalistic and super-productive⁠— which I thought
+one that I think you should look at if you want your browsing experience to be minimalistic and super-productive⁠— which I thought
 you might find interesting. Today we're going to explore the possibility of minimalism in modern browsing.
 
 A bit of background here. Since its inception, I've been using Chrome as my primary browser, until about a few years ago when Firefox
@@ -37,7 +37,7 @@ resources.
 
 The quirk about this browser is that it can be controlled through just the keyboard and/or trackpad alone, which is a big plus for power-users. It also 
 comes with the ability to use custom user scripts, the ability to add bookmarks complete with tags, the option to choose password managers such as 1Password
-or Bitwarden (my password manager of choice), and even some basic tracker-blocking capabilities. As excuting as this sounds, it may not be the best default 
+or Bitwarden (my password manager of choice), and even some basic tracker-blocking capabilities. As exciting as this sounds, it may not be the best default 
 option for a couple reasons. For one, it relies on the Electron browser engine, which is not in sync with Chromium, and could therefore pose a security risk.
 Secondly, it does not support traditional Chrome extensions, which could be a deal-breaker to many. 
 

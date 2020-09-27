@@ -1,6 +1,6 @@
 # Auto-Deploy Harp.js Blogs with Travis CI
 
-Having written this blog using Harp.js, I wanted to automate the process of deploying it to the primary branch as doing it manually was quite cumbersome. That's where <a href="https://travis-ci.org" target='_blank' rel='noopener noreferrer'>Travis CI</a>, a hosted continuous integration service that works with Github, came into play. Assuming you already have a blog setup, stick around to find out exactly how to automatically deploy your blog to the primary branch. 
+Having written this blog using Harp.js, I wanted to automate the process of deploying it to the target branch as doing it manually was quite cumbersome. That's where <a href="https://travis-ci.org" target='_blank' rel='noopener noreferrer'>Travis CI</a>, a hosted continuous integration service that works with Github, came into play. Assuming you already have a blog setup, stick around to find out exactly how to automatically deploy your blog to the target branch. 
 
 ## Create a Github Token
 
@@ -107,7 +107,7 @@ The above script basically boils down to the following steps:
 
 1. Extract the git information that we will need later on to push the changes back to Github.
 2. Compile the static app to a temp directory. Copy the `.gitignore` and `CNAME` files to restore them later on.
-3. Check out the primary branch, remove its existing files, and restore the generated content from the temp directory.
+3. Check out the target branch, remove its existing files, and restore the generated content from the temp directory.
 4. Finally, commit and push everything to the target branch, and clean up the temp files. 
 
 ### Build Notifications
@@ -120,7 +120,7 @@ After that, we need to specify which branch or branches need to be built.
 
 ### Environment Variables
 
-Last but not least, we have the ability to define environment variables to customize the build process. Travis allows us to take it a step further by allowing us to encrypt these variables to prevent sensitive information from being seen by anyone who views this file. In order to add encrypted variables to your `.travis.yml` file, you must have <a href="https://www.ruby-lang.org/en/downloads/" target='_blank' rel='noopener noreferrer'>ruby</a> installed and execute the below commands in a terminal:
+Last but not least, we have the ability to define environment variables to customize the build process. Travis allows us to take it a step further by allowing us to encrypt these variables to prevent sensitive information from being seen by anyone who views this file. In order to add encrypted variables to your `.travis.yml` file, you must have <a href="https://www.ruby-lang.org/en/downloads/" target='_blank' rel='noopener noreferrer'>Ruby</a> installed and execute the below commands in a terminal:
 
 ```bash
 $ gem install travis

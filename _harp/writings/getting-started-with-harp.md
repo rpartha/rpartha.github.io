@@ -14,8 +14,7 @@ As Harp relies on Node.js, we need to install that first. Please download and in
 
 ### Harp.js
 
-Now that you've got Node installed, it's time to install Harp. You install it using Node's default package manager, npm.  
-The following npm command, to be executed in a terminal or the inclduded CLI, should do the trick:
+Now that you've got Node installed, it's time to install Harp. You install it using Node's default package manager, npm. The following npm command, to be executed in a terminal or the inclduded CLI, should do the trick:
 
 ```
 sudo npm install -g harp
@@ -58,6 +57,10 @@ Below, you will find the different files in the repository and what they're used
 │    ├── _layout.jade           // The overall layout for the posts
 │    ├── index.jade             // The Archive page - I wanted /writings/
 │    └── my-post.md             // Posts can be written in markdown (preferred) or Jade
+├── tags                        // This is where I put things that are related to post tags
+│    ├── _data.json             // Contains metadata for each tag
+│    ├── _layout-tags.jade      // The overall layout for the tag pages
+│    └── tag-name.jade          // Get posts for each tag 
 ├── _data.json                  // Contains the metadata for each page
 ├── _layout.jade                // The layout for the general site: head -> data -> footer
 ├── 404.jade                    // The 404 Not Found page
