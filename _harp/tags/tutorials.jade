@@ -1,9 +1,32 @@
 h1 Tutorials
 nav.posts
   ul
+    - today = new Date()
+    - today.setHours(0,0,0,0)
+    - console.log('Today: ' + today)
+    - day = today.getDay()
+    - console.log('day: ' + day)
+    - weekFirst = new Date(today.setDate(today.getDate() - today.getDay() + (day === 0 ? -6:1)))
+    - weekFirst.setHours(0,0,0,0)
+    - console.log('First Day of Week: ' + weekFirst)
+    - weekLast = new Date(today.setDate(weekFirst.getDate() + 6))
+    - weekLast.setHours(23,59,0,0)
+    - console.log('Last Day of Week: ' + weekLast)
     each article, slug in public.writings._data
       if article.no_link != 1 && article.tags.includes('tutorials')
-        li
-          span.date #{ article.date }
-          a(href='/writings/#{ slug }') #{ article.title }
+        - articleDate = new Date(article.date + 'T00:00')
+        - console.log('Article Date: ' + articleDate)
+        if (articleDate >= weekFirst && articleDate <= weekLast)
+          li
+            span.date #{ article.date }
+            a(href='/writings/#{ slug }') #{ article.title }
+            div#badge
+              svg.new(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 24 24', fill='white', width='18px', height='18px', alt='new')
+                path(d='M0 0h24v24H0V0z', fill='none')
+                path(d='M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z')
+        else 
+          li
+            span.date #{ article.date }
+            a(href='/writings/#{ slug }') #{ article.title }
+          
           
