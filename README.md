@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/rpartha/rpartha.github.io.svg?branch=dev)](https://travis-ci.org/rpartha/rpartha.github.io)  
 
 # rpartha.github.io
-![rpartha.github.io](/_harp/assets/images/site-screenshot.png)
+![rpartha.github.io](/_harp/assets/images/site-screenshot-light.png)
+![rpartha.github.io](/_harp/assets/images/site-screenshot-dark.png)
 
 # Getting Started
 
