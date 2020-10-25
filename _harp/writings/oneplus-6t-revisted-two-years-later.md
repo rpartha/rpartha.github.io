@@ -23,7 +23,7 @@ Not all is well as the 6T does show its age in key areas— notably in the camer
 main camera and a 20MP secondary sensor at the back, coupled with a 16MP shooter up front. It becomes quite clear how unremarkable
 this camera system is in 2020. The 6T's camera does perform fairly decent during the daytime and well-lit conditions, but really
 tends to struggle with lowlight conditions. I personally recommend getting a <a href="https://www.celsoazevedo.com/files/android/google-camera/" target='_blank' rel='noopener noreferrer'>GCAM port for your device</a> if you want improved image quality. Google's magical software image processing does a lot
-of the heavy lifting. For around the same price,phones these days can get you much better image quality due to higher-res sensors 
+of the heavy lifting. For around the same price, phones these days can get you much better image quality due to higher-res sensors 
 and lense versatility (though the Pixel 5 with its three-year-old sensor still manages to take exceptionally good photos that rival 
 top players).
 
