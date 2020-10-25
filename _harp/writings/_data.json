@@ -1,4 +1,13 @@
 {
+  "oneplus-6t-revisted-two-years-later": {
+    "title": "OnepPlus 6T Revisited: Two Years Later!",
+    "date": "2020-10-25",
+    "dir": "Writings/",
+    "tags": ["tech", "reviews"],
+    "layout": "_layout-writings",
+    "exclude_back": 0,
+    "no_link": 0
+  },
   "minimalisitc-web-browsing": {
     "title": "Minimalistic Web Browsing",
     "date": "2020-07-02",

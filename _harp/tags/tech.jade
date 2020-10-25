@@ -1,0 +1,8 @@
+h1 Tech
+nav.posts
+  ul
+    each article, slug in public.writings._data
+      if article.no_link != 1 && article.tags.includes('tech')
+        li
+          span.date #{ article.date }
+          a(href='/writings/#{ slug }') #{ article.title }

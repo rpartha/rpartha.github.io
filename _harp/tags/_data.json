@@ -29,6 +29,12 @@
     "layout": "_layout-tags",
     "exclude_back": 1
   },
+  "tech": {
+    "title": "Tech",
+    "dir": "Tags/",
+    "layout": "_layout-tags",
+    "exclude_back": 1
+  },
   "current-events": {
     "title": "Current Events",
     "dir": "Tags/",
@@ -44,7 +50,7 @@
   "404": {
     "title": "404",
     "dir": "",
-    "layout": "_layout",
+    "layout": "_layout-tags",
     "exclude_back": 1
   }
 }
