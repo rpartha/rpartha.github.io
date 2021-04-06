@@ -1,0 +1,107 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/><meta name="theme-color" content="#fafafa"/><link rel="icon" type="image/png" href="/assets/images/favicon.png"/><title>/Ram/Writings/Auto-Deploy Harp.js Blogs with Travis CI</title><script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99834068-1', 'auto');
+ga('send', 'pageview');</script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://unpkg.com/feather-icons"></script><link rel="stylesheet" href="../assets/css/main.css"/><link rel="stylesheet" href="../assets/css/prism.css"/></head><body><div class="container"><p><a id="back" href="../"><i data-feather="arrow-left" class="feather back"></i></a></p><p class="post-date">2020-05-30</p><div id="tagl"><div class="tag-icon"><i data-feather="tag" class="feather tag"></i></div><div class="tag-list"><ul><li><a href="/tags/tutorials" class="tag-link">#tutorials       </a></li><li><a href="/tags/harp-js" class="tag-link">#harp.js       </a></li></ul></div></div><h1>Auto-Deploy Harp.js Blogs with Travis CI</h1><p>Having written this blog using Harp.js, I wanted to automate the process of deploying it to the target branch as doing it manually was quite cumbersome. That&#39;s where <a href="https://travis-ci.org" target="_blank" rel="noopener noreferrer">Travis CI</a>, a hosted continuous integration service that works with Github, came into play. Assuming you already have a blog setup, stick around to find out exactly how to automatically deploy your blog to the target branch. </p>
+<h2>Create a Github Token</h2><p>First thing&#39;s first, you&#39;re going to need a new personal access token since you&#39;ll be interacting with Github via a script and will need to let Github know on who&#39;s behalf the script is acting. </p>
+<p>To do that, head over to <strong>Settings</strong>, and then <strong>Developer settings</strong>, and then <strong>Personal access tokens</strong>, and finally click on <strong>Generate new token</strong>. You should see the below screen:  </p>
+<img src="../assets/images/github-new-token.png" alt="Github Personal access token" style="width:100%">
+
+<p>Give the token an appropriate description in the <strong>Note</strong> text field and select only the <strong>repo</strong>, <strong>admin:repo_hook</strong>, and <strong>user</strong> scopes. Remember to save the token after generating it as you won&#39;t be able to retrieve it after the fact and will instead have to regenerate a new one.</p>
+<h2>Getting Started with Travis CI</h2><p>Now that you have a Github token to identify yourself, it&#39;s time to setup Travis:</p>
+<ol>
+<li>Head to <a href="https://travis-ci.org" target="_blank" rel="noopener noreferrer">https://travis-ci.org</a> and sign-up with your Github account. It&#39;s FREE for <strong>open-source</strong> repositories.</li>
+<li>Click on your profile picture in the top right of your Travis Dashboard, click <strong>Settings</strong> and then the green <strong>Activate</strong> button, and select the repositories you want to use with Travis CI. </li>
+</ol>
+<p>Enabling the repository only notifies Travis that new code has been submittted, but we still need to tell it what to do with the code. For that we need to create a <code>.travis.yml</code> file in the root of the build branch (the branch we intend on building— in my case, <code>dev</code>) to allow Travis to check for further instructions. Below is the <code>.travis.yml</code> file for this blog, though you may or may  not need certain commands. Let&#39;s break this down further. </p>
+<pre><code class="language-yml"># development language
+language: node_js
+
+# language version
+node_js: [&#39;12.16.1&#39;]
+
+# prior to script execution
+before_script:
+  - npm install
+  - chmod +x ./scripts/deploy.sh
+
+# execute the script
+script:
+  - npm run-script deploy
+
+# build notifications
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+    recipients:
+      - example@gmail.com
+
+# branch or branches to build
+branches:
+  only:
+    - dev</code></pre>
+<h3>Node.js</h3><p>First, we tell Travis to instantiate a Node.js environment using the specified version. </p>
+<h3>Pre-Deployment</h3><p>Next, we list out the commands that Travis should execute <ins>before</ins> the <code>script</code> commands get executed. Therefore, if any of these commands fail to execute for whatever reason, the build will not continue and the <code>script</code> commands will not execute. </p>
+<h3>Deployment Script</h3><p>Next, the <code>script</code> command will execute the deployment script. This script will take care of compiling the app and pushing the static content to the repo. Below is the script I used to deploy this blog:</p>
+<pre><code class="language-bash">#!/bin/bash
+echo &quot;Starting deployment&quot;
+echo &quot;Target: master branch&quot;
+
+TEMP_DIRECTORY=&quot;/tmp/deploy&quot;
+CURRENT_COMMIT=`git rev-parse HEAD`
+ORIGIN_URL=`git config --get remote.origin.url`
+ORIGIN_URL_WITH_CREDENTIALS=${ORIGIN_URL/\/\/github.com/\/\/$GITHUB_TOKEN@github.com}
+
+echo &quot;Compiling new static content&quot;
+mkdir $TEMP_DIRECTORY || exit 1
+harp compile your-blog $TEMP_DIRECTORY || exit 1
+cp .gitignore $TEMP_DIRECTORY || exit 1
+cp CNAME $TEMP_DIRECTORY || exit 1
+
+echo &quot;Checking out master branch&quot;
+git checkout -b master || exit 1
+
+echo &quot;Removing old static content&quot;
+git rm -rf . || exit 1
+
+echo &quot;Copying newly generated static content&quot;
+cp -r $TEMP_DIRECTORY/* . || exit 1
+cp $TEMP_DIRECTORY/.gitignore . || exit 1
+cp $TEMP_DIRECTORY/CNAME . || exit 1
+
+git add -A . || exit 1
+git commit --allow-empty -m &quot;Regenerated static content for $CURRENT_COMMIT&quot; || exit 1
+git push --force --quiet &quot;$ORIGIN_URL_WITH_CREDENTIALS&quot; master &gt; /dev/null 2&gt;&amp;1
+
+echo &quot;Cleaning up temp files&quot;
+rm -Rf $TEMP_DIRECTORY
+
+echo &quot;Deployed successfully.&quot;
+exit 0</code></pre>
+<p>The above script basically boils down to the following steps:</p>
+<ol>
+<li>Extract the git information that we will need later on to push the changes back to Github.</li>
+<li>Compile the static app to a temp directory. Copy the <code>.gitignore</code> and <code>CNAME</code> files to restore them later on.</li>
+<li>Check out the target branch, remove its existing files, and restore the generated content from the temp directory.</li>
+<li>Finally, commit and push everything to the target branch, and clean up the temp files. </li>
+</ol>
+<h3>Build Notifications</h3><p>We can also optionally specify who wants to receive certain build notifications and what notifcations are to be received.</p>
+<h3>Build Branches</h3><p>After that, we need to specify which branch or branches need to be built. </p>
+<h3>Environment Variables</h3><p>Last but not least, we have the ability to define environment variables to customize the build process. Travis allows us to take it a step further by allowing us to encrypt these variables to prevent sensitive information from being seen by anyone who views this file. In order to add encrypted variables to your <code>.travis.yml</code> file, you must have <a href="https://www.ruby-lang.org/en/downloads/" target="_blank" rel="noopener noreferrer">Ruby</a> installed and execute the below commands in a terminal:</p>
+<pre><code class="language-bash">$ gem install travis
+$ cd your_project
+$ travis encrypt GITHUB_TOKEN=your-secret-github-token --add</code></pre>
+<p>You should now see the below added to your <code>.travis.yml</code> file:</p>
+<pre><code class="language-yml"># environment variables
+env:
+  global:
+    secure: &lt;encrypted string&gt;</code></pre>
+<p>Travis will actually decrypt the encrypted string to use as a regular environment variable when executing your script, making it easy to access the original <code>GITHUB_TOKEN</code>. </p>
+<h2>Initiating a Build</h2><p>Now it&#39;s time to see everything in action. To trigger a build, we need to push an update to the build branch (depends on your workflow). You should now see a yellow build appear at the top of the list in Travis. </p>
+<img src="../assets/images/travis-build-init.png" alt="Travis New Build" style="width:100%">
+
+<p>You can view more details and a live log by clicking on the build. If the build was successful, it would be marked as passed (green), otherwise it would be marked as failing (red). The logs in Travis should indicate what, if anything, went wrong. </p>
+<img src="../assets/images/travis-build-info.png" alt="Travis New Build" style="width:100%">
+
+<p>The nice thing about Travis is that your live blog is only updated when all commands run successfull. If anything were to fail, the deployment would not go through.</p>
+<h2>Closing Remarks</h2><p>We&#39;ve only scratched the surface in terms what Travis can do. I highly suggest reading its documentation to find even more customized ways to automate many facets of your project. Hopefully you found this article useful, even if don&#39;t use Harp.js or host your site on Github. Have a good one!</p><p><a id="back" href="../"><i data-feather="arrow-left" class="feather back"></i></a></p><div class="footer"><p class="copy"><a href="https://raw.githubusercontent.com/rpartha/rpartha.github.io/4de89c65e120e59e117f748a814369298ae3a13a/LICENSE" target="_blank" rel="noopener noreferrer">&copy; 2021 </a></p><p class="love"> 
+Handcrafted with <i data-feather="heart" class="feather filled feather-pound"> </i> by yours truly</p><p class="source"><a href="https://github.com/rpartha/rpartha.github.io/tree/dev" target="_blank" rel="noopener noreferrer">Source</a></p></div></div><script src="../assets/js/themes.js"></script><script src="../assets/js/prism.js"></script></body></html>
