@@ -4,11 +4,6 @@
 ![rpartha.github.io](/_harp/assets/images/site-screenshot-light.png)
 ![rpartha.github.io](/_harp/assets/images/site-screenshot-dark.png)
 
-# Getting Started
-
-Please go through my [blog post](https://ssgram.dev/writings/getting-started-with-harp) to set this up for yourself.
-This is NOT a starter template.
-
 # Forking and/or Cloning
 
 I value keeping my site open source, but as you all know, plagiarism is bad. It's always disheartening whenever I   
