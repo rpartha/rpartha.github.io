@@ -1,7 +1,0 @@
-# Who is this guy?
-
-<img src='../assets/images/profile.png' alt='Profile' width='200' height='200'/>
-
-I graduated from Rutgers University, New-Brunswick in 2018 with a B.S. in Computer Science and Computer Engineering. I have since been making waves as a back-end dev over 
-<a href='http://stonewain.com' target='_blank' rel='noopener noreferrer'>@Stonewain Systems, Inc</a>. For the past decade and counting, I have been learning and practicing the 
-<a href='https://www.google.com/search?q=Tabla' target='_blank' rel='noopener noreferrer'>Tabla</a> under the guidance of Dr. Pratik Devasthale. Earlier this year, I have recieved a <a href='https://en.wikipedia.org/wiki/Akhil_Bharatiya_Gandharva_Mahavidyalaya_Mandal' target='_blank' rel='noopener noreferrer'>Visharad Purna</a> (the equivalent of a Bachelor's degree) for it. In my spare time, I like to sharpen my technical skillset to improve and expand on top of the knowledge I possess. Apart from that, I very much enjoy going on hikes and outings with friends, watching my favorite shows, and casually gaming. Some of the shows I like include Brooklyn Nine-Nine, Mr. Robot, The Flash, Mandalorian, and Superman and Lois. If you liked what you read so far, please take a look around.

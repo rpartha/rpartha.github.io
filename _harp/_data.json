@@ -1,27 +1,8 @@
 {
     "index": {
-        "title": "Home",
-        "dir": "",
-        "exclude_back": 1
-    },
-    "about": {
-      "title": "About",
-      "dir": "",
-      "exclude_back": 1
-    },
-    "contact": {
-        "title": "Contact",
-        "dir": "",
-        "exclude_back": 1
-    },
-    "setup": {
-        "title": "Setup",
-        "dir": "",
-        "exclude_back": 1
+        "title": "Home"
     },
     "404": {
-        "title": "404",
-        "dir": "",
-        "exclude_back": 1
+        "title": "404"
     }
 }

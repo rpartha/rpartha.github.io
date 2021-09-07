@@ -2,15 +2,7 @@ doctype html
 html
   != partial('_partials/_head')
   body
-    .container
-      if title != 'Home'
-        p
-          a(href='../') 
-            i(data-feather='arrow-left' class='feather back')
-      != yield
-      if exclude_back != 1
-        p
-          a(href='../')
-            i(data-feather='arrow-left' class='feather back')
-      != partial('_partials/_footer')
-    script(src='https://ramaseshan.dev/assets/js/themes.js')
+    != yield
+    script(src='/assets/js/script.js' type='text/javascript')
+    
+  
