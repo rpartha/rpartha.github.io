@@ -220,6 +220,9 @@ main {
 		padding: 0 2rem;
 	}
 
+	p:not(.blurb) {
+		word-spacing: -5px;
+	}
 }
 
 section {
