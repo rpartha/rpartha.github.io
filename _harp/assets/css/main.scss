@@ -41,10 +41,10 @@ html[data-theme="light"] {
 
 	background-color: #e2e7fa;
 
-  .gg-moon {
-    transform: rotate(-135deg) scale(var(--ggs,1.2));
-    color: var(--accent-color);
-  }
+	.gg-moon {
+		transform: rotate(-135deg) scale(var(--ggs,1.2));
+		color: var(--accent-color);
+	}
 
 	#theme-toggle div {
 		position: relative;
@@ -73,10 +73,10 @@ html[data-theme="dark"] {
 
 	background-color: #090b10;
 
-  .gg-sun {
-    transform: scale(var(--ggs,1.2));
-    color: var(--accent-color);
-  }
+	.gg-sun {
+		transform: scale(var(--ggs,1.2));
+		color: var(--accent-color);
+	}
 
 	#theme-toggle div {
 		position: relative;
